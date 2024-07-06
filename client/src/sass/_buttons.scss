@@ -1,0 +1,25 @@
+@mixin btn-type($color: $elephant-800){
+  background: rgba($color: $color, $alpha: 0.7);
+  color: rgba($color: #FFF, $alpha: 0.8);
+  cursor: pointer;
+  &:hover{
+    background: $color;
+    color: white;
+  }
+  &:focus{
+    background: $color;
+    outline: solid 3px rgba($color: $color, $alpha: 0.6);
+    color: white;
+  }
+}
+.btn{
+  border: solid 1px transparent;
+  border-radius: 5px;
+  font-size: 0.9rem;
+  padding: 10px 15px;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  &.btn-primary{
+    @include btn-type($elephant-800);
+  }
+}

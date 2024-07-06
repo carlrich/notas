@@ -1,0 +1,98 @@
+.inicio{
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr;
+  column-gap: 20px;
+  width: 100%;
+  .buttons{
+    display: flex;
+    gap: 10px;
+    flex-direction: column;
+    button{
+      &.active{
+        border-color: $elephant-800;
+        background: $elephant-100;
+        color: $elephant-800;
+      }
+    }
+  }
+  input, textarea{
+    background: $elephant-50;
+    border: solid 1px $elephant-800;
+    border-radius: 5px;
+    font-size: 1rem;
+    flex: 1;
+    padding: 9.5px;
+    transition: all 0.3s ease;
+    &:focus{
+      outline: solid 3px rgba($color: $elephant-800, $alpha: 0.6);
+      background: $elephant-100;
+    }
+    &:valid{
+      background: $elephant-100;
+    }
+  }
+  .form{
+    textarea{
+      height: 400px;
+      resize: none;
+      width: 100%;
+    }
+    .title{
+      margin-bottom: 10px;
+      display: flex;
+      gap: 10px;
+      align-items: center;
+    }
+  }
+  .search-list{
+    .search{
+      color: $elephant-800;
+      margin-bottom: 10px;
+      position: relative;
+      label{
+        position: absolute;
+        right: 10px;
+        top: 50%;
+        transform: translateY(-50%);
+      }
+    }
+    input{
+      width: 100%;
+      padding-right: 32px;
+    }
+    .notas{
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      .box-nota{
+        background: rgba($color: $elephant-500, $alpha: 0.6);
+        border-radius: 5px;
+        color: rgba($color: #fff, $alpha: 0.7);
+        cursor: pointer;
+        outline: solid 1px transparent;
+        padding: 15px;
+        position: relative;
+        transition: all 0.3s ease;
+        &:hover{
+          background: $elephant-500;
+          color: white;
+        }
+        &:focus{
+          background: $elephant-500;
+          outline: solid 3px rgba($color: $elephant-500, $alpha: 0.6);
+          color: white;
+        }
+        span{
+          font-size: 0.6rem;
+          right: 7px;
+          position: absolute;
+          top: 7px;
+        }
+        .titulo-nota{
+          text-align: center;
+          font-size: 1.1rem;
+        }
+      }
+    }
+  }
+}
