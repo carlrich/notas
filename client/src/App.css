@@ -176,4 +176,77 @@ nav ul li a.login:hover {
 .inicio .search-list .notas .box-nota .titulo-nota {
   text-align: center;
   font-size: 1.1rem;
+}
+
+.login-form {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  height: 87vh;
+}
+.login-form form {
+  flex-direction: column;
+  display: flex;
+  gap: 20px;
+}
+.login-form form .logo {
+  color: #0079af;
+  font-size: 3rem;
+  margin: auto;
+}
+.login-form form h2 {
+  color: #ddf5ff;
+  font-weight: 400;
+  text-align: center;
+}
+.login-form form .group-input {
+  position: relative;
+}
+.login-form form .group-input label {
+  color: rgba(255, 255, 255, 0.8);
+  display: block;
+  font-size: 0.9rem;
+  left: 10px;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  transition: all 0.3s ease;
+  width: -moz-fit-content;
+  width: fit-content;
+}
+.login-form form .group-input input {
+  border: solid 1px #006690;
+  border-radius: 5px;
+  background: rgba(3, 84, 119, 0.7);
+  font-size: 1rem;
+  outline: solid 1px transparent;
+  padding: 10px;
+  transition: all 0.3s ease;
+  width: 310px;
+}
+.login-form form .group-input input:focus {
+  background: #b4edff;
+  outline: solid 3px rgba(0, 102, 144, 0.6);
+  margin-top: 15px;
+}
+.login-form form .group-input input:focus ~ label {
+  left: 0px;
+  top: -3px;
+}
+.login-form form .group-input input:valid {
+  margin-top: 15px;
+  background: #b4edff;
+}
+.login-form form .group-input input:valid ~ label {
+  left: 0px;
+  top: -3px;
+}
+.login-form form p {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.75rem;
+}
+.login-form form p a {
+  color: #0098d9;
+  text-decoration: none;
 }/*# sourceMappingURL=App.css.map */

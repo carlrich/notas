@@ -1,0 +1,73 @@
+.login-form{
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  height: 87vh;
+  form{
+    flex-direction: column;
+    display: flex;
+    gap: 20px;
+    .logo{
+      color: $elephant-700;
+      font-size: 3rem;
+      margin: auto;
+    }
+    h2{
+      color: $elephant-100;
+      font-weight: 400;
+      text-align: center;
+    }
+    .group-input{
+      position: relative;
+      label{
+        color: rgba($color: #fff, $alpha: 0.8);
+        display: block;
+        font-size: 0.9rem;
+        left: 10px;
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        transition: all 0.3s ease;
+        width: fit-content;
+      }
+      input{
+        border: solid 1px $elephant-800;
+        border-radius: 5px;
+        background: rgba($color: $elephant-900, $alpha: 0.7);
+        font-size: 1rem;
+        outline: solid 1px transparent;
+        padding: 10px;
+        transition: all 0.3s ease;
+        width: 310px;
+        &:focus{
+          background: $elephant-200;
+          outline: solid 3px rgba($color: $elephant-800, $alpha: 0.6);
+          margin-top: 15px;
+          & ~ label{
+            // color: white;
+            left: 0px;
+            top: -3px;
+          }
+        }
+        &:valid{
+          margin-top: 15px;
+          background: $elephant-200;
+          & ~ label{
+            // color: white;
+            left: 0px;
+            top: -3px;
+          }
+        }
+      }
+    }
+    p{
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.75rem;
+      a{
+        color: $elephant-600;
+        text-decoration: none;
+      }
+    }
+  }
+}
