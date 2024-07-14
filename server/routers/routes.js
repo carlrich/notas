@@ -1,5 +1,5 @@
 import express from 'express';
-import { getUser, registerUser } from '../controllers/userController.js';
+import { getUser, registerUser, updateUser } from '../controllers/userController.js';
 
 export const router = express.Router();
 router.get('/', (req, res)=>{
@@ -9,3 +9,4 @@ router.get('/', (req, res)=>{
 export const userRouter = express.Router();
 userRouter.get('/', getUser);
 userRouter.post('/', registerUser);
+userRouter.put('/:id', updateUser);

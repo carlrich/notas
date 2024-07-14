@@ -107,7 +107,7 @@ export const updateUser = async (req, res)=>{
       { _id: req.params.id },
       { $set: updateFields }
     );
-    if(response.nModified > 0){
+    if(response.modifiedCount > 0){
       return res.json({
         status: true,
         message: 'Se actualizado correctamente',
