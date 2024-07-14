@@ -22,9 +22,16 @@ export const cargarImagen = multer({
 
 export const getUser = async (req, res)=>{
   try {
-    res.send('Datos del usuario');
+    const user = await userModel.findById(req.params.id);
+    if (!user) {
+      return res.status(404).json({
+        status: false,
+        message: 'Usuario no encontrado',
+      });
+    }
+    res.json(user);
   } catch (error) {
-    
+    return res.status(500).json({ status: false, message: 'Error en el servidor ' + error });
   }
 }
 export const registerUser = async (req, res)=>{
@@ -120,5 +127,35 @@ export const updateUser = async (req, res)=>{
     }
   } catch (error) {
     return res.status(500).json({ status: false, message: 'Error en el servidor ' + error });
+  }
+}
+
+export const deleteUser = async (req, res)=>{
+  try {
+    const user = await userModel.findById(req.params.id);
+    if(!user){
+      return res.status(404).json({
+        status: false,
+        message: 'Usuario no encontrado',
+      });
+    }
+    const oldFilename = user.avatar;
+    if(oldFilename !== 'defaultAvatar.jpg'){
+      fs.unlinkSync(path.join(__dirname, '../avatars', oldFilename));
+    }
+    const response = await userModel.deleteOne({ _id: req.params.id });
+    if(response.deletedCount > 0){
+      return res.json({
+        status: true,
+        message: 'Usuario eliminado correctamente',
+      });
+    }else{
+      return res.json({
+        status: false,
+        message: 'No se pudo eliminar el usuario',
+      });
+    }
+  } catch (error) {
+    return res.status(500).json({ status: false, message: 'Error en el servidor ' + error.message });
   }
 }
