@@ -159,3 +159,32 @@ export const deleteUser = async (req, res)=>{
     return res.status(500).json({ status: false, message: 'Error en el servidor ' + error.message });
   }
 }
+
+export const loginUser = async (req, res)=>{
+  try {
+    const { correo, password } = req.body;
+    if(!correo || !password){
+      return res.json({
+        status: false,
+        message: 'Rellene el correo y las contraseña, porfavor.',
+      });
+    }
+    let user = await userModel.findOne({ correo });
+    if(!user){
+      return res.json({
+        status: false,
+        message: 'El correo electrónico no es valido.',
+      });
+    }
+    const isValidPassword = await bcrypt.compare(password, user.password);
+    if(!isValidPassword){
+      return res.json({
+        status: false,
+        message: 'La contraseña no es valido.',
+      });
+    }
+    res.json({ user });
+  } catch (error) {
+    return res.status(500).json({ status: false, message: 'Error en el servidor ' + error.message });
+  }
+}
